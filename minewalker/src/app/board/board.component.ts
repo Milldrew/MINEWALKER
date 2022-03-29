@@ -12,6 +12,10 @@ export class BoardComponent implements OnInit {
   coordintes: Coordinate[] | undefined;
   constructor(public boardService: BoardService) {}
 
+  ngAfterContentChecked() {
+    this.coordintes = this.boardService.getCoordinates();
+    console.log(JSON.stringify(this.coordintes));
+  }
   ngOnInit(): void {
     this.coordintes = this.boardService.getCoordinates();
     console.log(JSON.stringify(this.coordintes));
