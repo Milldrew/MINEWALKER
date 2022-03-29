@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
 import { SquareComponent } from './board/square/square.component';
 import { UserInterfaceComponent } from './user-interface/user-interface.component';
+import { GameService } from './services/game.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { UserInterfaceComponent } from './user-interface/user-interface.componen
     UserInterfaceComponent,
   ],
   imports: [BrowserModule, FormsModule],
-  providers: [],
+  providers: [GameService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
