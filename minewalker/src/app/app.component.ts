@@ -8,14 +8,14 @@ import { BoardSize, GameService } from './services/game.service';
 })
 export class AppComponent {
   title = 'minewalker';
-  boardSize: BoardSize | undefined = 10;
-  constructor(public gameService: GameService) {}
-
-  ngOnInit() {
+  boardSize?: BoardSize | undefined;
+  constructor(public gameService: GameService) {
     this.gameService
       .getBoardSize()
       .subscribe((boardSize) => (this.boardSize = this.boardSize));
   }
+
+  ngOnInit() {}
   boardStyles = {
     'grid-template-columns': `repeat(${this.boardSize}, 1fr)`,
     'grid-template-rows': `repeat(${this.boardSize}, 1fr)`,
