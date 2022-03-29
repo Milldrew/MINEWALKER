@@ -11,7 +11,6 @@ export class UserInterfaceComponent implements OnInit {
   constructor(public gameService: GameService) {}
   boardSize: BoardSize = 10;
   setBoardSize() {
-    console.log(this.boardSize);
     this.gameService.setBoardSize(this.boardSize);
     this.gameService.getBoardSize().subscribe((value) => console.log(value));
   }
