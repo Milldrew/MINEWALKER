@@ -3,3 +3,11 @@ p {
   padding: 0px 0px;
   text-align: center;
 }
+div {
+  height: 100%;
+  width: 100%;
+}
+
+.happy {
+  background-color: yellow;
+}

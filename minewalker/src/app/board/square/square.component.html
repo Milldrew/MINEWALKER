@@ -1,1 +1,3 @@
-<p *ngIf="coordinate">{{ coordinate.x }}</p>
+<div [ngClass]="squareClasses">
+  <p *ngIf="coordinate">x: {{ coordinate.x }}, y:{{ coordinate.y }}</p>
+</div>

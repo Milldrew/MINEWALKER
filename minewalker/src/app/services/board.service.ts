@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
 import { Coordinate } from '../board/square/square.component';
 import { BoardSize, GameService } from './game.service';
 
@@ -7,8 +8,16 @@ import { BoardSize, GameService } from './game.service';
 })
 export class BoardService {
   coordinates: Coordinate[] | undefined;
+  happyPathCoordinates: any;
+  happyPathCoordinates$: any;
+  ngOnInit() {
+    this.happyPathCoordinates = this.makeHappyPath();
+    console.log(this.happyPathCoordinates);
+  }
 
-  constructor(public gameService: GameService) {}
+  constructor(public gameService: GameService) {
+    this.happyPathCoordinates = this.makeHappyPath();
+  }
   computeHappyPath(boardSize: any, moves: any) {
     let y = 1;
     let x = 1;
@@ -19,16 +28,15 @@ export class BoardService {
       if (move === 'UP') {
         happyPathCoordinates.push({
           x: previousCoordinate.x,
-          y: (previousCoordinate.y += 1),
+          y: previousCoordinate.y + 1,
         });
       } else {
         happyPathCoordinates.push({
           y: previousCoordinate.y,
-          x: (previousCoordinate.x += 1),
+          x: previousCoordinate.x + 1,
         });
       }
     });
-    console.log('HAPPY PATH', happyPathCoordinates);
     return happyPathCoordinates;
   }
   getCoordinates() {
@@ -73,12 +81,10 @@ export class BoardService {
         }
       }
     }
-    //    console.log({ moveUpCount });
-    //    console.log({ moveRightCount });
-    //    console.log(JSON.stringify(moves));
-    //    console.log(moves.length);
-    //    console.log(moves.filter((move) => move === UP).length);
-    //    console.log(moves.filter((move) => move === RIGHT).length);
-    return this.computeHappyPath(boardSize, moves);
+
+    const happyPath = this.computeHappyPath(boardSize, moves);
+    this.happyPathCoordinates$ = of(happyPath);
+    console.log({ happyPath });
+    return happyPath;
   }
 }

@@ -14,10 +14,10 @@ export class BoardComponent implements OnInit {
 
   ngAfterContentChecked() {
     this.coordintes = this.boardService.getCoordinates();
-    console.log(JSON.stringify(this.coordintes));
+    this.boardService.makeHappyPath();
   }
   ngOnInit(): void {
     this.coordintes = this.boardService.getCoordinates();
-    console.log(JSON.stringify(this.coordintes));
+    this.boardService.makeHappyPath();
   }
 }

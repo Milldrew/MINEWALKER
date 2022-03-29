@@ -18,11 +18,8 @@ export class AppComponent {
   }
   ngAfterContentChecked() {
     this.boardSize$ = this.gameService.getBoardSize();
-    console.log('from app comp', this.boardSize);
     if (this.boardSize$) {
       this.boardSize$.subscribe((value) => {
-        console.log('from obervable', value);
-
         this.boardSize = value;
       });
     }
