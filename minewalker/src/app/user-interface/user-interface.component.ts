@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { tap } from 'rxjs';
+import { BoardSize, GameService } from '../services/game.service';
 
 @Component({
   selector: 'app-user-interface',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-interface.component.css'],
 })
 export class UserInterfaceComponent implements OnInit {
-  constructor() {}
-  boardSize: number = 10;
+  constructor(public gameService: GameService) {}
+  boardSize: BoardSize = 10;
   setBoardSize() {
     console.log(this.boardSize);
+    this.gameService.setBoardSize(this.boardSize);
+    this.gameService.getBoardSize().subscribe((value) => console.log(value));
   }
   ngOnInit(): void {}
 }
