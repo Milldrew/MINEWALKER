@@ -14,9 +14,11 @@ export class BoardService {
     const boardSize = this.gameService.getBoardSize();
     boardSize.subscribe((boardSize) => {
       let coordinates: Coordinate[] = [];
-      for (let x = 1; x <= boardSize; x += 1) {
-        let newCoordinate = { x, y: 1 };
-        coordinates.push(newCoordinate);
+      for (let y = 1; y <= boardSize; y += 1) {
+        for (let x = 1; x <= boardSize; x += 1) {
+          let newCoordinate = { x, y };
+          coordinates.push(newCoordinate);
+        }
       }
       this.coordinates = coordinates;
     });
