@@ -6,3 +6,27 @@ app-board {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
 }
+
+header,
+footer,
+aside {
+  border: 1px solid red;
+}
+header {
+  width: 70%;
+}
+h1 {
+  text-align: center;
+}
+aside {
+  width: 15%;
+}
+main {
+  width: 100%;
+  display: flex;
+}
+
+footer {
+  height: 30%;
+  width: 100%;
+}
