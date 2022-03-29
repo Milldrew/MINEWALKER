@@ -54,7 +54,7 @@ export class BoardService {
     return this.coordinates;
   }
   makeHappyPath() {
-    let boardSize;
+    let boardSize: number | undefined;
     this.gameService.getBoardSize().subscribe((value) => (boardSize = value));
     let moveUpCount = 0;
     let moveRightCount = 0;
