@@ -14,11 +14,9 @@ export class GameService {
   setBoardSize(size: BoardSize) {
     this.boardSize = size;
     this.boardSize$ = of(size);
-    this.boardSize$.subscribe((value) => console.log('map', value));
   }
 
   getBoardSize(): Observable<BoardSize> {
-    this.boardSize$.subscribe((value) => console.log('value'));
     return this.boardSize$;
   }
 }
