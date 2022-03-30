@@ -22,9 +22,7 @@ export class UserService {
     return false;
   }
   moveUser(coordinate: Coordinate | undefined) {
-    console.log(coordinate);
     this.usersCoordinate = coordinate;
-    console.log(this.usersCoordinate);
     if (this.hasWonRound(coordinate)) {
       this.winRound();
     }
@@ -35,7 +33,6 @@ export class UserService {
       const boardSize = this.gameService.boardSize;
       const atWinningSquare =
         coordinate.x === boardSize && coordinate.y === boardSize;
-      console.log({ atWinningSquare });
       this.hasWon$ = of(atWinningSquare);
       return atWinningSquare;
     }

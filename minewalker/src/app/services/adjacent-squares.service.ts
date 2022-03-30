@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Coordinate } from '../board/square/square.component';
 import { GameService } from './game.service';
+import { MinesService } from './mines.service';
 import { UserService } from './user.service';
 
 @Injectable({
@@ -9,7 +10,8 @@ import { UserService } from './user.service';
 export class AdjacentSquaresService {
   constructor(
     public userService: UserService,
-    public gameService: GameService
+    public gameService: GameService,
+    public minesService: MinesService
   ) {}
 
   computeAdjacentSquares() {
@@ -17,8 +19,6 @@ export class AdjacentSquaresService {
     let boardSize;
     this.gameService.getBoardSize().subscribe((value) => (boardSize = value));
     let board;
-    console.log({ usersCoordinate });
-    console.log({ boardSize });
     let adjacentCoordinates: any = [];
     if (usersCoordinate && boardSize) {
       let onRightSide = usersCoordinate.x === boardSize;
@@ -46,9 +46,27 @@ export class AdjacentSquaresService {
           y: usersCoordinate.y,
         });
     }
-    console.log({
-      adjacentCoordinates,
+    return adjacentCoordinates;
+  }
+
+  adjacentMineCount(): number {
+    console.log('adjacent mine count');
+    const adjacentSquares = this.computeAdjacentSquares();
+    let mineCoordinates: any;
+    this.minesService.mineCoordinates$.subscribe(
+      (value: any) => (mineCoordinates = value)
+    );
+    console.log({ adjacentSquares });
+    console.log({ mineCoordinates });
+
+    let adjacentMines = adjacentSquares.filter((adjacentSquare: any) => {
+      const hasMine = mineCoordinates.find((mine: any) => {
+        return mine.x === adjacentSquare.x && mine.y === adjacentSquare.y;
+      });
+      return hasMine;
     });
+    console.log(adjacentMines.length);
+    return 0;
   }
 }
 
