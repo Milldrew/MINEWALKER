@@ -19,7 +19,7 @@ export class ScoreService {
   }
   hitMineDeductions() {
     this.lives -= 1;
-    this.currentScore -= 100;
+    this.currentScore -= 10;
   }
   winRoundIncrease() {
     console.log('HELLO');

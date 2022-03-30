@@ -15,14 +15,15 @@ export class AdjacentSquaresService {
     public gameService: GameService,
     public minesService: MinesService
   ) {}
-  isAdjacent(coordinate: any): number {
+  isAdjacent(coordinate: any) {
     const adjacentSquares = this.computeAdjacentSquares();
-
-    let adjacentMines = adjacentSquares.filter((adjacentSquare: any) => {
+    console.log(adjacentSquares);
+    let isAdjacent = !!adjacentSquares.filter((adjacentSquare: any) => {
       const isAdjacent =
         coordinate.x === adjacentSquare.x && coordinate.y === adjacentSquare.y;
-    });
-    return adjacentMines.length;
+      return isAdjacent;
+    })[0];
+    return isAdjacent;
   }
 
   computeAdjacentSquares() {
