@@ -12,7 +12,7 @@ export class SquareService {
     public minesService: MinesService
   ) {}
 
-  isMine(coordinate: any) {
+  isMine(coordinate: any): any {
     let mineCoordinates: any;
     const mineCoordinates$ = this.minesService.mineCoordinates$;
     mineCoordinates$.subscribe((value: any) => (mineCoordinates = value));
@@ -26,12 +26,13 @@ export class SquareService {
           return isMine;
         }
       )[0];
+      console.log(mineCoordinates);
       return isCoordinateMine;
     }
-    return false;
+    this.isMine(coordinate);
   }
 
-  isOnHappyPath(coordinate: any) {
+  isOnHappyPath(coordinate: any): any {
     let happyPathCoordinates: any = [];
     const happyPathCoordinates$ = this.boardService.happyPathCoordinates$;
     happyPathCoordinates$.subscribe((value: any) => {
@@ -48,6 +49,6 @@ export class SquareService {
       )[0];
       return isCoordinateHappy;
     }
-    return false;
+    this.isOnHappyPath(coordinate);
   }
 }

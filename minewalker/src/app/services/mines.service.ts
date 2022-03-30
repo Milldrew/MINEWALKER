@@ -23,8 +23,6 @@ export class MinesService {
         });
         return !result;
       });
-      console.log('openSquares');
-      console.table(openSquares);
       this.chooseMineCoordinates(openSquares);
     }
   }
@@ -42,7 +40,7 @@ export class MinesService {
         mineCoordinates.push(openSquares.pop());
       } else {
         let middleIndex = Math.floor(openSquares.length / 2);
-        mineCoordinates.push(openSquares.splice(middleIndex));
+        mineCoordinates.push(openSquares.splice(middleIndex, 1)[0]);
       }
     }
 
