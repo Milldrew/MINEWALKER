@@ -1,3 +1,6 @@
 <div [ngClass]="squareClasses">
-  <p *ngIf="coordinate">x: {{ coordinate.x }}, y:{{ coordinate.y }}</p>
+  <p *ngIf="coordinate && !hasUser">
+    x: {{ coordinate.x }}, y:{{ coordinate.y }}
+  </p>
+  <p class="frog" *ngIf="hasUser">🐸</p>
 </div>

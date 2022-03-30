@@ -15,6 +15,7 @@ export class SquareComponent implements OnInit {
   public squareClasses: any;
   isHappy: any;
   isMine: any;
+  hasUser: boolean = true;
 
   ngOnInit(): void {
     this.isHappy = this.squareService.isOnHappyPath(this.coordinate);
