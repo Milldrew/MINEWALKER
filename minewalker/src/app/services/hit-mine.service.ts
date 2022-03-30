@@ -18,12 +18,9 @@ export class HitMineService {
       (value: any) => (mines = value)
     );
     if (mines) {
-      console.log(mines);
-      console.log(usersCoordinate);
       let hasHitMine = !!mines.find((mine: any) => {
         return mine.x === usersCoordinate.x && mine.y === usersCoordinate.y;
       });
-      console.log({ hasHitMine });
       return hasHitMine;
     }
     return this.hitMine();

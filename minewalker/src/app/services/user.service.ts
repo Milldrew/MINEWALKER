@@ -2,6 +2,7 @@ import { of, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Coordinate } from '../board/square/square.component';
 import { GameService } from './game.service';
+import { AdjacentSquaresService } from './adjacent-squares.service';
 
 @Injectable({
   providedIn: 'root',

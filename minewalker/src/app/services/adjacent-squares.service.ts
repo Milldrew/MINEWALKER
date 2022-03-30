@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
 import { Coordinate } from '../board/square/square.component';
 import { GameService } from './game.service';
 import { MinesService } from './mines.service';
@@ -8,11 +9,21 @@ import { UserService } from './user.service';
   providedIn: 'root',
 })
 export class AdjacentSquaresService {
+  adjacentSquares$: any;
   constructor(
     public userService: UserService,
     public gameService: GameService,
     public minesService: MinesService
   ) {}
+  isAdjacent(coordinate: any): number {
+    const adjacentSquares = this.computeAdjacentSquares();
+
+    let adjacentMines = adjacentSquares.filter((adjacentSquare: any) => {
+      const isAdjacent =
+        coordinate.x === adjacentSquare.x && coordinate.y === adjacentSquare.y;
+    });
+    return adjacentMines.length;
+  }
 
   computeAdjacentSquares() {
     let usersCoordinate = this.userService.usersCoordinate;
@@ -46,6 +57,7 @@ export class AdjacentSquaresService {
           y: usersCoordinate.y,
         });
     }
+    this.adjacentSquares$ = of(adjacentCoordinates);
     return adjacentCoordinates;
   }
 
