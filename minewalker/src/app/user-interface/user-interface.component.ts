@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { tap } from 'rxjs';
 import { BoardService } from '../services/board.service';
 import { BoardSize, GameService } from '../services/game.service';
+import { MinesService } from '../services/mines.service';
 
 @Component({
   selector: 'app-user-interface',
@@ -11,13 +12,15 @@ import { BoardSize, GameService } from '../services/game.service';
 export class UserInterfaceComponent implements OnInit {
   constructor(
     public gameService: GameService,
-    public boardService: BoardService
+    public boardService: BoardService,
+    public minesService: MinesService
   ) {}
   boardSize: BoardSize = 10;
   setBoardSize() {
     this.gameService.setBoardSize(this.boardSize);
     this.gameService.getBoardSize().subscribe((value) => console.log(value));
     this.boardService.makeHappyPath();
+    this.minesService.layMines();
   }
   ngOnInit(): void {}
 }
