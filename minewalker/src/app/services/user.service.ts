@@ -9,8 +9,6 @@ export class UserService {
   constructor() {}
 
   hasUser(coordinate: Coordinate | undefined) {
-    console.log('from user service', coordinate);
-
     if (coordinate) {
       return (
         this.usersCoordinate.x === coordinate.x &&
@@ -18,5 +16,8 @@ export class UserService {
       );
     }
     return false;
+  }
+  moveUser(coordinate: Coordinate | undefined) {
+    console.log(coordinate);
   }
 }

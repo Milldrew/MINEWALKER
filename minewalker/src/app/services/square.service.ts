@@ -26,7 +26,6 @@ export class SquareService {
           return isMine;
         }
       )[0];
-      console.log(mineCoordinates);
       return isCoordinateMine;
     }
     this.isMine(coordinate);

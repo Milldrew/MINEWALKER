@@ -44,8 +44,6 @@ export class MinesService {
       }
     }
 
-    console.log('mineCoordinates');
-    console.log(mineCoordinates);
     this.mineCoordinates$ = of(mineCoordinates);
     return mineCoordinates;
   }
