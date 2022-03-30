@@ -26,7 +26,6 @@ export class SquareService {
           return isMine;
         }
       )[0];
-      console.log('hello');
       return isCoordinateMine;
     }
     this.isMine(coordinate);
@@ -44,7 +43,6 @@ export class SquareService {
           const isHappy =
             happyCoordinate.x === Number(coordinate.x) &&
             happyCoordinate.y === Number(coordinate.y);
-          console.log('hello happy');
           return isHappy;
         }
       )[0];

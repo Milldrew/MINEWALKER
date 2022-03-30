@@ -34,20 +34,24 @@ export class MinesService {
     let openSquaresCount = openSquares.length;
     let mineCoordinatesNeeded = openSquaresCount / 4 + 1;
     let mineCoordinates = [];
-    let randomBoolean = Math.random() > 0.5;
-    let randomBooleanTwo = Math.random() > 0.5;
     while (mineCoordinatesNeeded > mineCoordinates.length) {
+      let randomBoolean = Math.random() > 0.5;
+      let randomBooleanTwo = Math.random() > 0.5;
       if (randomBoolean && randomBooleanTwo) {
-        mineCoordinates.push(openSquares.pop());
+        console.log(1);
+        mineCoordinates.push(openSquares.shift());
       } else if (randomBoolean || randomBooleanTwo) {
-        mineCoordinates.push(openSquares.pop());
-      } else {
+        console.log(2);
         let middleIndex = Math.floor(openSquares.length / 2);
         mineCoordinates.push(openSquares.splice(middleIndex, 1)[0]);
+      } else {
+        console.log(3);
+        mineCoordinates.push(openSquares.pop());
       }
     }
 
     this.mineCoordinates$ = of(mineCoordinates);
+
     return mineCoordinates;
   }
 }
