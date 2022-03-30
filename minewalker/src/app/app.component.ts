@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable, share } from 'rxjs';
 import { BoardSize, GameService } from './services/game.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,10 @@ export class AppComponent {
   title = 'minewalker';
   public boardSize$: Observable<BoardSize> | undefined;
   boardSize?: BoardSize | undefined;
-  constructor(public gameService: GameService) {
+  constructor(
+    public gameService: GameService,
+    public userService: UserService
+  ) {
     this.gameService
       .getBoardSize()
       .subscribe((boardSize) => (this.boardSize = this.boardSize));
@@ -34,5 +38,8 @@ export class AppComponent {
   };
   ngOnInit() {
     this.boardSize$ = this.gameService.getBoardSize().pipe(share());
+  }
+  hasWon() {
+    return this.userService.getHasWon();
   }
 }

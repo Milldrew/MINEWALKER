@@ -7,6 +7,7 @@ import { GameService } from './game.service';
   providedIn: 'root',
 })
 export class UserService {
+  hasWon$: Observable<boolean> = of(false);
   usersCoordinate: undefined | Coordinate = { x: 1, y: 1 };
   usersCoordinate$: undefined | Observable<Coordinate> = of({ x: 1, y: 1 });
   constructor(public gameService: GameService) {}
@@ -31,18 +32,24 @@ export class UserService {
 
   hasWonRound(coordinate: Coordinate | undefined) {
     if (coordinate) {
-      console.log('hasw won round');
       const boardSize = this.gameService.boardSize;
-      console.table(coordinate);
-      console.table({ boardSize });
       const atWinningSquare =
         coordinate.x === boardSize && coordinate.y === boardSize;
       console.log({ atWinningSquare });
+      this.hasWon$ = of(atWinningSquare);
       return atWinningSquare;
     }
     return false;
   }
   winRound() {
     console.log(`WON ROUND`);
+  }
+  getHasWon() {
+    let hasWon;
+    this.hasWon$.subscribe((value) => (hasWon = value));
+    return hasWon;
+  }
+  setHasWon(boolean: boolean) {
+    this.hasWon$ = of(boolean);
   }
 }

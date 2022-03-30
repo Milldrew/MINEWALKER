@@ -15,9 +15,9 @@ export class UserInterfaceComponent implements OnInit {
     public boardService: BoardService,
     public minesService: MinesService
   ) {}
-  boardSize: BoardSize = 10;
+  boardSize: BoardSize = 3;
   setBoardSize() {
-    this.gameService.setBoardSize(this.boardSize);
+    this.gameService.setBoardSize(Number(this.boardSize));
     this.gameService.getBoardSize().subscribe((value) => console.log(value));
     this.boardService.makeHappyPath();
     this.minesService.layMines();

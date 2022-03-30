@@ -1,3 +1,14 @@
+app-winner-prompt {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #da2;
+}
 app-board {
   display: grid;
   height: 70vw;
