@@ -10,10 +10,6 @@ export class BoardService {
   coordinates: Coordinate[] | undefined;
   happyPathCoordinates: any;
   happyPathCoordinates$: any;
-  ngOnInit() {
-    this.happyPathCoordinates = this.makeHappyPath();
-    console.log(this.happyPathCoordinates);
-  }
 
   constructor(public gameService: GameService) {
     this.happyPathCoordinates = this.makeHappyPath();
@@ -84,7 +80,6 @@ export class BoardService {
 
     const happyPath = this.computeHappyPath(boardSize, moves);
     this.happyPathCoordinates$ = of(happyPath);
-    console.log({ happyPath });
     return happyPath;
   }
 }

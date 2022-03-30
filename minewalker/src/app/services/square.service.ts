@@ -17,15 +17,12 @@ export class SquareService {
     if (happyPathCoordinates) {
       const isCoordinateHappy = !!happyPathCoordinates.filter(
         (happyCoordinate: any) => {
-          console.table(happyCoordinate);
-          console.table(coordinate);
           const isHappy =
             happyCoordinate.x === Number(coordinate.x) &&
             happyCoordinate.y === Number(coordinate.y);
           return isHappy;
         }
       )[0];
-      console.log(coordinate, isCoordinateHappy);
       return isCoordinateHappy;
     }
     return false;
