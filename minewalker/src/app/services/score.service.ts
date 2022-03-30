@@ -17,7 +17,10 @@ export class ScoreService {
       totalScore: this.totalScore,
     });
   }
-
+  hitMineDeductions() {
+    this.lives -= 1;
+    this.currentScore -= 10;
+  }
   winRoundIncrease() {
     console.log('HELLO');
     this.totalScore += this.currentScore;
