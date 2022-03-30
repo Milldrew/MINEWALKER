@@ -50,14 +50,11 @@ export class AdjacentSquaresService {
   }
 
   adjacentMineCount(): number {
-    console.log('adjacent mine count');
     const adjacentSquares = this.computeAdjacentSquares();
     let mineCoordinates: any;
     this.minesService.mineCoordinates$.subscribe(
       (value: any) => (mineCoordinates = value)
     );
-    console.log({ adjacentSquares });
-    console.log({ mineCoordinates });
 
     let adjacentMines = adjacentSquares.filter((adjacentSquare: any) => {
       const hasMine = mineCoordinates.find((mine: any) => {
@@ -65,8 +62,7 @@ export class AdjacentSquaresService {
       });
       return hasMine;
     });
-    console.log(adjacentMines.length);
-    return 0;
+    return adjacentMines.length;
   }
 }
 

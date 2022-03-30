@@ -11,6 +11,8 @@ import { MinesService } from '../services/mines.service';
   styleUrls: ['./user-interface.component.css'],
 })
 export class UserInterfaceComponent implements OnInit {
+  public warningStyles: any;
+  public warningColor: any;
   constructor(
     public gameService: GameService,
     public boardService: BoardService,
@@ -26,15 +28,30 @@ export class UserInterfaceComponent implements OnInit {
   }
   setWarningColor() {
     let adjacentMineCount = this.adjacentSquaresService.adjacentMineCount();
-    return 'red';
-  }
-  warningColor: string = this.setWarningColor();
-  getWarningColor() {
-    return this.warningColor ? this.warningColor : 'red';
+    switch (adjacentMineCount) {
+      case 3:
+        this.warningColor = 'red';
+        return;
+      case 2:
+        this.warningColor = 'orange';
+        return;
+      case 1:
+        this.warningColor = 'yellow';
+        return;
+      case 0:
+        this.warningColor = 'green';
+        return;
+    }
   }
   ngAfterContentChecked() {
     this.setWarningColor();
+    this.warningStyles = {
+      'background-color': true ? this.warningColor : 'green',
+    };
   }
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.warningStyles = {
+      'background-color': false ? 'red' : 'green',
+    };
+  }
 }
