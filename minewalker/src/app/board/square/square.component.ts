@@ -20,9 +20,6 @@ export class SquareComponent implements OnInit {
   isHappy: any;
   isMine: any;
   hasUser: boolean = true;
-  move(coordinate: Coordinate | undefined) {
-    this.userService.moveUser(coordinate);
-  }
   ngOnInit(): void {
     this.hasUser = this.userService.hasUser(this.coordinate);
     this.isHappy = this.squareService.isOnHappyPath(this.coordinate);

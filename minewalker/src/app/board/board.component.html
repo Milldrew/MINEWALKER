@@ -1,2 +1,6 @@
-<app-square *ngFor="let coordinate of coordintes" [coordinate]="coordinate">
+<app-square
+  *ngFor="let coordinate of coordintes"
+  [coordinate]="coordinate"
+  (click)="move(coordinate)"
+>
 </app-square>
