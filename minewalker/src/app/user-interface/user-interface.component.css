@@ -1,0 +1,7 @@
+.warning {
+  padding: 10px 10px;
+  position: absolute;
+  bottom: 3vw;
+  right: 3vw;
+  background-color: red;
+}
