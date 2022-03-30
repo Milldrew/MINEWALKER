@@ -18,11 +18,9 @@ export class BoardComponent implements OnInit {
 
   ngAfterContentChecked() {
     this.coordintes = this.boardService.getCoordinates();
-    this.boardService.makeHappyPath();
     this.minesService.layMines();
   }
   ngOnInit(): void {
-    this.minesService.layMines();
     this.coordintes = this.boardService.getCoordinates();
     this.boardService.makeHappyPath();
   }
