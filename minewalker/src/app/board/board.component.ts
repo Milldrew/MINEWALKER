@@ -25,8 +25,9 @@ export class BoardComponent implements OnInit {
   ) {}
 
   move(coordinate: Coordinate | undefined) {
-    this.adjacentSquaresService.isAdjacent(coordinate);
-    this.userService.moveUser(coordinate);
+    if (this.adjacentSquaresService.isAdjacent(coordinate)) {
+      this.userService.moveUser(coordinate);
+    } else alert('You can only move to adjacent squares');
     this.adjacentSquaresService.computeAdjacentSquares();
     this.adjacentSquaresService.adjacentMineCount();
     if (this.hitMineService.hitMine()) {
