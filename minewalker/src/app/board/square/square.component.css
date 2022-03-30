@@ -8,6 +8,9 @@ div {
   width: 100%;
 }
 
+.mine {
+  background-color: pink;
+}
 .happy {
   background-color: yellow;
 }

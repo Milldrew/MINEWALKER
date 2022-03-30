@@ -13,11 +13,9 @@ export class SquareService {
   ) {}
 
   isMine(coordinate: any) {
-    console.log('coordinate', coordinate);
     let mineCoordinates: any;
     const mineCoordinates$ = this.minesService.mineCoordinates$;
     mineCoordinates$.subscribe((value: any) => (mineCoordinates = value));
-    console.log(mineCoordinates);
 
     if (mineCoordinates) {
       const isCoordinateMine = !!mineCoordinates.filter(

@@ -14,11 +14,15 @@ export class SquareComponent implements OnInit {
   constructor(public squareService: SquareService) {}
   public squareClasses: any;
   isHappy: any;
+  isMine: any;
 
   ngOnInit(): void {
     this.isHappy = this.squareService.isOnHappyPath(this.coordinate);
+    this.isMine = this.squareService.isMine(this.coordinate);
+    console.log(this.isMine);
     this.squareClasses = {
       happy: this.isHappy,
+      mine: this.isMine,
     };
   }
 }
