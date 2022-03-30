@@ -1,0 +1,29 @@
+h2 {
+  letter-spacing: 1px;
+}
+.win-emoji {
+  font-size: 100px;
+  text-align: center;
+}
+.score {
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.button {
+  padding: 17px 4px;
+  background-color: white;
+  width: 30vw;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: #aaf;
+}
+.button:active {
+  background-color: #ff3;
+}

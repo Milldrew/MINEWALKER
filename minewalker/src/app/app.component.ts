@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable, share } from 'rxjs';
 import { BoardSize, GameService } from './services/game.service';
+import { ScoreService } from './services/score.service';
 import { UserService } from './services/user.service';
 
 @Component({
@@ -14,12 +15,18 @@ export class AppComponent {
   boardSize?: BoardSize | undefined;
   constructor(
     public gameService: GameService,
-    public userService: UserService
+    public userService: UserService,
+    public scoreService: ScoreService
   ) {
     this.gameService
       .getBoardSize()
       .subscribe((boardSize) => (this.boardSize = this.boardSize));
   }
+
+  isGameOver() {
+    return this.scoreService.currentScore === 0;
+  }
+
   ngAfterContentChecked() {
     this.boardSize$ = this.gameService.getBoardSize();
     if (this.boardSize$) {

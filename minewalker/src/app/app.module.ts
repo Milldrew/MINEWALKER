@@ -9,6 +9,7 @@ import { UserInterfaceComponent } from './user-interface/user-interface.componen
 import { GameService } from './services/game.service';
 import { WinnerPromptComponent } from './winner-prompt/winner-prompt.component';
 import { ScoreboardComponent } from './user-interface/scoreboard/scoreboard.component';
+import { GameOverComponent } from './game-over/game-over.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ScoreboardComponent } from './user-interface/scoreboard/scoreboard.comp
     UserInterfaceComponent,
     WinnerPromptComponent,
     ScoreboardComponent,
+    GameOverComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [GameService],
