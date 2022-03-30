@@ -5,3 +5,19 @@
   right: 3vw;
   border: 1px solid black;
 }
+
+.sizer {
+  padding: 10px 10px;
+  border: 1px solid red;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+app-scoreboard {
+  border: 1px solid red;
+  height: 100%;
+  width: 70%;
+  padding: 14px 20px;
+  background-color: #eee;
+}
