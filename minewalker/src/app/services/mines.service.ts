@@ -32,7 +32,7 @@ export class MinesService {
 
   chooseMineCoordinates(openSquares: any) {
     let openSquaresCount = openSquares.length;
-    let mineCoordinatesNeeded = openSquaresCount / 4 + 1;
+    let mineCoordinatesNeeded = openSquaresCount / 2 + 1;
     let mineCoordinates = [];
     while (mineCoordinatesNeeded > mineCoordinates.length) {
       let randomBoolean = Math.random() > 0.5;
