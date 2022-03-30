@@ -6,8 +6,11 @@ import { BoardService } from './board.service';
   providedIn: 'root',
 })
 export class MinesService {
-  constructor(public boardService: BoardService) {}
+  mineCoordinates: any;
   mineCoordinates$: any;
+  constructor(public boardService: BoardService) {
+    this.mineCoordinates = this.layMines();
+  }
   layMines() {
     let happyPath: any;
     const boardSquares = this.boardService.getCoordinates();
