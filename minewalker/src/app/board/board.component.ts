@@ -32,6 +32,8 @@ export class BoardComponent implements OnInit {
     this.adjacentSquaresService.adjacentMineCount();
     if (this.hitMineService.hitMine()) {
       this.scoreService.hitMineDeductions();
+      this.userService.moveUser({ x: 1, y: 1 });
+      alert('You hit a mine 🤯');
     }
     if (this.userService.getHasWon()) {
       this.scoreService.winRoundIncrease();

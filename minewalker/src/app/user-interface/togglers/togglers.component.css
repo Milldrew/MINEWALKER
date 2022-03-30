@@ -1,0 +1,12 @@
+.toggles {
+  border: 1px solid red;
+  padding: 4px 4px;
+  text-align: center;
+}
+
+.toggles:hover {
+  background-color: orange;
+}
+.toggles:active {
+  background-color: blue;
+}

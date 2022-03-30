@@ -12,24 +12,21 @@ app-game-over {
 }
 app-board {
   display: grid;
-  border: 1px solid red;
+  border: 1px solid #00000044;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
+  width: 80%;
+  background-color: #eee;
 }
 
 header,
-footer,
-aside {
-  border: 1px solid red;
+footer {
 }
 header {
   width: 70%;
 }
 h1 {
   text-align: center;
-}
-aside {
-  width: 15%;
 }
 main {
   width: 100%;

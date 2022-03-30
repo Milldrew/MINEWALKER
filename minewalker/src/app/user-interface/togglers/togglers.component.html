@@ -1,0 +1,12 @@
+<div (click)="toggleHappyPath(true)" *ngIf="!showHappyPath" class="toggles">
+  Show Happy Path
+</div>
+<div (click)="toggleHappyPath(false)" *ngIf="showHappyPath" class="toggles">
+  Hide Happy Path
+</div>
+<div (click)="toggleMines(true)" *ngIf="!showMines" class="toggles">
+  Show Mines
+</div>
+<div (click)="toggleMines(false)" *ngIf="showMines" class="toggles">
+  Hide Mines
+</div>

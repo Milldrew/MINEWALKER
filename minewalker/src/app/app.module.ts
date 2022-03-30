@@ -10,6 +10,7 @@ import { GameService } from './services/game.service';
 import { WinnerPromptComponent } from './winner-prompt/winner-prompt.component';
 import { ScoreboardComponent } from './user-interface/scoreboard/scoreboard.component';
 import { GameOverComponent } from './game-over/game-over.component';
+import { TogglersComponent } from './user-interface/togglers/togglers.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { GameOverComponent } from './game-over/game-over.component';
     WinnerPromptComponent,
     ScoreboardComponent,
     GameOverComponent,
+    TogglersComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [GameService],

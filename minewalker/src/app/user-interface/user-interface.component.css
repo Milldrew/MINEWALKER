@@ -21,3 +21,11 @@ app-scoreboard {
   padding: 14px 20px;
   background-color: #eee;
 }
+
+app-togglers {
+  display: flex;
+  width: 100%;
+  border: 1px solid red;
+  margin-top: 4%;
+  justify-content: space-between;
+}
