@@ -24,14 +24,25 @@ export class UserService {
     console.log(coordinate);
     this.usersCoordinate = coordinate;
     console.log(this.usersCoordinate);
+    if (this.hasWonRound(coordinate)) {
+      this.winRound();
+    }
   }
 
-  hasWonRound(coordinate: Coordinate) {
-    const boardSize = this.gameService.boardSize;
-    console.log('from win round', boardSize);
-    return coordinate.x === boardSize && coordinate.y === boardSize;
+  hasWonRound(coordinate: Coordinate | undefined) {
+    if (coordinate) {
+      console.log('hasw won round');
+      const boardSize = this.gameService.boardSize;
+      console.table(coordinate);
+      console.table({ boardSize });
+      const atWinningSquare =
+        coordinate.x === boardSize && coordinate.y === boardSize;
+      console.log({ atWinningSquare });
+      return atWinningSquare;
+    }
+    return false;
   }
-  winRound(coordinate: Coordinate) {
+  winRound() {
     console.log(`WON ROUND`);
   }
 }
