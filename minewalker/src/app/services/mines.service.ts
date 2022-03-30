@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
 import { BoardService } from './board.service';
 
 @Injectable({
@@ -6,7 +7,7 @@ import { BoardService } from './board.service';
 })
 export class MinesService {
   constructor(public boardService: BoardService) {}
-
+  mineCoordinates$: any;
   layMines() {
     let happyPath: any;
     const boardSquares = this.boardService.getCoordinates();
@@ -47,6 +48,7 @@ export class MinesService {
 
     console.log('mineCoordinates');
     console.log(mineCoordinates);
+    this.mineCoordinates$ = of(mineCoordinates);
     return mineCoordinates;
   }
 }
