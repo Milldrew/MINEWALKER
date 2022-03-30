@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdjacentSquaresService } from '../services/adjacent-squares.service';
 import { BoardService } from '../services/board.service';
+import { HitMineService } from '../services/hit-mine.service';
 import { MinesService } from '../services/mines.service';
 import { UserService } from '../services/user.service';
 import { Coordinate } from './square/square.component';
@@ -17,13 +18,15 @@ export class BoardComponent implements OnInit {
     public minesService: MinesService,
     public userService: UserService,
     public boardService: BoardService,
-    public adjacentSquaresService: AdjacentSquaresService
+    public adjacentSquaresService: AdjacentSquaresService,
+    public hitMineService: HitMineService
   ) {}
 
   move(coordinate: Coordinate | undefined) {
     this.userService.moveUser(coordinate);
     this.adjacentSquaresService.computeAdjacentSquares();
     this.adjacentSquaresService.adjacentMineCount();
+    this.hitMineService.hitMine();
   }
   ngAfterContentChecked() {
     this.coordintes = this.boardService.getCoordinates();
