@@ -1,4 +1,5 @@
 <div [ngClass]="squareClasses">
   <p *ngIf="isMine && showMines">💣</p>
   <p class="frog" *ngIf="hasUser">🐸</p>
+  <p class="star" *ngIf="isWinningSquare">⭐️</p>
 </div>

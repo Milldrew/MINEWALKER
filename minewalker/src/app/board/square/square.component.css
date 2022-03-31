@@ -17,9 +17,12 @@ div {
 .happy {
   background-color: yellow;
 }
+.star {
+  font-size: 40px;
+  animation: blinker 1s linear infinite;
+}
 .frog {
   font-size: 40px;
-  animation: blinker 6s linear infinite;
 }
 
 @keyframes blinker {

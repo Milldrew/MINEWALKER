@@ -18,6 +18,7 @@ export class SquareComponent implements OnInit {
     public userService: UserService,
     public squareService: SquareService
   ) {}
+  isWinningSquare = false;
   public squareClasses: any;
   showHappy: boolean = false;
   showMines: boolean = false;
@@ -39,5 +40,10 @@ export class SquareComponent implements OnInit {
     this.squareClasses = {
       happy: this.showHappy ? this.isHappy : false,
     };
+    if (this.coordinate) {
+      this.isWinningSquare = this.squareService.isWinningSquare(
+        this.coordinate
+      );
+    }
   }
 }

@@ -2,15 +2,23 @@ import { Coordinate } from '../board/square/square.component';
 import { BoardService } from './board.service';
 import { Injectable } from '@angular/core';
 import { MinesService } from './mines.service';
+import { GameService } from './game.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SquareService {
   constructor(
+    public gameService: GameService,
     public boardService: BoardService,
     public minesService: MinesService
   ) {}
+
+  isWinningSquare(coordinate: Coordinate) {
+    console.log(this.gameService.boardSize);
+    let boardSize = this.gameService.boardSize;
+    return coordinate.x === boardSize && coordinate.y === boardSize;
+  }
 
   isMine(coordinate: any): any {
     let mineCoordinates: any;
