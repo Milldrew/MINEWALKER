@@ -1,7 +1,11 @@
 .toggles {
   border: 1px solid red;
-  padding: 4px 4px;
+  padding: 8px 8px;
   text-align: center;
+  margin: 0px 10px;
+  background-color: #eef;
+  margin-bottom: 80px;
+  z-index: 2;
 }
 
 .toggles:hover {

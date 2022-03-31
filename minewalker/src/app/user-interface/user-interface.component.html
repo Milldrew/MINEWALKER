@@ -1,3 +1,6 @@
+<div [ngStyle]="warningStyles" class="warning">
+  Adjacent Mines: Green:0 Yellow: 1 Orange:2 Red:3
+</div>
 <div class="sizer">
   <label>Board Size: </label>
   <select [(ngModel)]="boardSize" (change)="setBoardSize()">
@@ -14,4 +17,3 @@
 </div>
 <app-scoreboard> </app-scoreboard>
 <app-togglers> </app-togglers>
-<div [ngStyle]="warningStyles" class="warning">RISK LEVEL</div>

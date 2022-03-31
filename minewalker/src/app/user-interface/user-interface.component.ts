@@ -39,7 +39,7 @@ export class UserInterfaceComponent implements OnInit {
         this.warningColor = 'yellow';
         return;
       case 0:
-        this.warningColor = 'green';
+        this.warningColor = '#8f9';
         return;
     }
   }

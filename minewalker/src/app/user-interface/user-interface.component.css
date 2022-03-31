@@ -1,21 +1,17 @@
 .warning {
   padding: 10px 10px;
-  position: absolute;
-  bottom: 3vw;
-  right: 3vw;
-  border: 1px solid black;
+  top: 0;
+  width: 75%;
 }
 
 .sizer {
-  padding: 10px 10px;
-  border: 1px solid red;
+  padding: 14px 10px;
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
 app-scoreboard {
-  border: 1px solid red;
   height: 100%;
   width: 70%;
   padding: 14px 20px;
@@ -25,7 +21,6 @@ app-scoreboard {
 app-togglers {
   display: flex;
   width: 100%;
-  border: 1px solid red;
   margin-top: 4%;
-  justify-content: space-between;
+  justify-content: center;
 }
