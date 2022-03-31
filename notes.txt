@@ -1,4 +1,4 @@
-scoring: start with 100 points hit mine is -10 pts 10 lives
-each time you make it to the end you accumulate points.
-if you lose all your lives you get a gameover screen.
+Fix buttons
+Add marker on upper right square
+Add instructions
 
