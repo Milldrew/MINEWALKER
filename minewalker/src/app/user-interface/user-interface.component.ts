@@ -4,6 +4,7 @@ import { AdjacentSquaresService } from '../services/adjacent-squares.service';
 import { BoardService } from '../services/board.service';
 import { BoardSize, GameService } from '../services/game.service';
 import { MinesService } from '../services/mines.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-user-interface',
@@ -14,6 +15,7 @@ export class UserInterfaceComponent implements OnInit {
   public warningStyles: any;
   public warningColor: any;
   constructor(
+    public userService: UserService,
     public gameService: GameService,
     public boardService: BoardService,
     public minesService: MinesService,
@@ -25,6 +27,7 @@ export class UserInterfaceComponent implements OnInit {
     this.gameService.getBoardSize().subscribe((value) => console.log(value));
     this.boardService.makeHappyPath();
     this.minesService.layMines();
+    this.userService.moveUser({ x: 1, y: 1 });
   }
   setWarningColor() {
     let adjacentMineCount = this.adjacentSquaresService.adjacentMineCount();
