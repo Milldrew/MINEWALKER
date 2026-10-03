@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Observable, share } from 'rxjs';
 import { BoardSize, GameService } from './services/game.service';
 import { ScoreService } from './services/score.service';
+import { MessageService } from './services/message.service';
 import { UserService } from './services/user.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class AppComponent {
   constructor(
     public gameService: GameService,
     public userService: UserService,
-    public scoreService: ScoreService
+    public scoreService: ScoreService,
+    public messageService: MessageService
   ) {
     this.gameService
       .getBoardSize()

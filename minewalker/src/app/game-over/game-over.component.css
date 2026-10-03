@@ -17,7 +17,8 @@ h2 {
 .button {
   padding: 17px 4px;
   background-color: white;
-  width: 30vw;
+  border: 0;
+  width: min(30vw, 220px);
   text-align: center;
 }
 

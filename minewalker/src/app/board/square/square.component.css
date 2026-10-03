@@ -18,11 +18,11 @@ div {
   background-color: yellow;
 }
 .star {
-  font-size: 40px;
+  font-size: clamp(16px, 6vmin, 40px);
   animation: blinker 1s linear infinite;
 }
 .frog {
-  font-size: 40px;
+  font-size: clamp(16px, 6vmin, 40px);
 }
 
 @keyframes blinker {

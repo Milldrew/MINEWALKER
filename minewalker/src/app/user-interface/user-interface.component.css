@@ -1,7 +1,8 @@
 .warning {
   padding: 10px 10px;
   top: 0;
-  width: 75%;
+  width: min(92vw, 640px);
+  text-align: center;
 }
 
 .sizer {
@@ -12,8 +13,7 @@
 }
 
 app-scoreboard {
-  height: 100%;
-  width: 70%;
+  width: min(92vw, 640px);
   padding: 14px 20px;
   background-color: #eee;
 }
@@ -21,6 +21,8 @@ app-scoreboard {
 app-togglers {
   display: flex;
   width: 100%;
-  margin-top: 4%;
+  margin-top: 16px;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }

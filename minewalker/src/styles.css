@@ -1,7 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+*,
+*::before,
+*::after {
+  /* width:100% + padding no longer overflows the page (it did, by 20px). */
+  box-sizing: border-box;
+}
+
 app-root {
   display: flex;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   flex-direction: column;
   align-items: center;
@@ -10,10 +17,16 @@ app-root {
 
 body,
 html {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   display: flex;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0px 0px;
   background-color: #ddd;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
 }

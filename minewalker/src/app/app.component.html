@@ -2,6 +2,11 @@
 <app-game-over *ngIf="isGameOver()"> </app-game-over>
 <header>
   <h1>Minewalker</h1>
+  <p class="how-to">
+    Walk the 🐸 to the ⭐️ one square at a time &mdash; tap a neighbouring square
+    or use the arrow keys. The strip below the board warns how many mines are next to you.
+  </p>
+  <p class="message" role="status" aria-live="polite">{{ messageService.text }}</p>
 </header>
 <main>
   <aside class="left"></aside>

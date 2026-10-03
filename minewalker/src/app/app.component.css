@@ -1,12 +1,13 @@
 app-winner-prompt,
 app-game-over {
-  position: absolute;
-  height: 100%;
-  width: 100%;
+  /* fixed, not absolute: covers the whole screen however far it is scrolled */
+  position: fixed;
+  inset: 0;
   background-color: white;
   z-index: 3;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   background-color: #da2;
 }
@@ -15,32 +16,44 @@ app-board {
   border: 1px solid #00000044;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  width: 80%;
+  /* Always square, and always fits: as wide as the screen allows on a phone,
+     never taller than the window on a laptop. */
+  width: min(92vw, 62vh, 640px);
+  aspect-ratio: 1 / 1;
   background-color: #eee;
 }
-
-header,
-footer {
-}
 header {
-  width: 70%;
+  width: min(92vw, 640px);
+  text-align: center;
 }
 h1 {
   text-align: center;
+  margin: 18px 0 6px;
+}
+.how-to {
+  margin: 0 0 6px;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.4;
+}
+.message {
+  min-height: 1.4em;
+  margin: 0 0 8px;
+  font-weight: bold;
+  color: #b00;
 }
 main {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-
 footer {
-  height: 30%;
   width: 100%;
+  padding-bottom: 24px;
 }
 app-user-interface {
   display: flex;
-  width: 100;
+  width: 100%;
   flex-direction: column;
   align-items: center;
 }
